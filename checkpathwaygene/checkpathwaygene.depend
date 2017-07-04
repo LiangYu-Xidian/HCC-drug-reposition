@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1449650301 source:e:\sx\checkpathwaygene\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<iterator>
+	<vector>
+	<ext/hash_map>
+

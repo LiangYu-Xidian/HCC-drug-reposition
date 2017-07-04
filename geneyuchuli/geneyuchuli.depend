@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1449199080 source:e:\sx\geneyuchuli\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<stdlib.h>
+	<vector>
+	<string.h>
+

@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1448006743 source:e:\sx\jisuangenebiaodazhi\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<winsock2.h>
+	<mysql.h>
+	<windows.h>
+	<string.h>
+	<vector>
+	<sstream>
+
+1135772574 d:\mysql\mysql5.0\include\mysql.h
+	<sys/types.h>
+	<winsock.h>
+	"mysql_com.h"
+	"mysql_time.h"
+	"mysql_version.h"
+	"typelib.h"
+	"my_list.h"
+	"my_alloc.h"
+
+1135772574 d:\mysql\mysql5.0\include\mysql_com.h
+
+1135772574 d:\mysql\mysql5.0\include\mysql_time.h
+
+1135772574 d:\mysql\mysql5.0\include\mysql_version.h
+	<custom_conf.h>
+
+1135772574 d:\mysql\mysql5.0\include\typelib.h
+
+1135772574 d:\mysql\mysql5.0\include\my_list.h
+
+1135772574 d:\mysql\mysql5.0\include\my_alloc.h
+

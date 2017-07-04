@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1448960883 source:e:\sx\chaifenwenjian\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+

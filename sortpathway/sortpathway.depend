@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1452564748 source:e:\sx\sortpathway\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<iterator>
+	<list>
+	<ext/hash_map>
+

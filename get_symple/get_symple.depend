@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1448075005 source:e:\sx\get_symple\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<winsock2.h>
+	<mysql.h>
+	<windows.h>
+	<string.h>
+	<vector>
+	<sstream>
+

@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1448245237 source:e:\sx\get_pathway\main.cpp
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<vector>
+	<ext/hash_map>
+	<string>
+
