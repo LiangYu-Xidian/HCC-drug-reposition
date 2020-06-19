@@ -19,14 +19,13 @@ namespace __gnu_cxx {
 using namespace __gnu_cxx;
 using namespace std;
 
-typedef pair <string, int> Pair; // 自定义的哈希表数据结构
-
-struct Node{ // 节点数据结构
-    string gene; // 基因name
-    int id; // 基因在HCC rank list 中的排序位置
+typedef pair <string, int> Pair; //Custom hash table data structure
+struct Node{ // Node data structure
+    string gene; // gene name
+    int id; // Rank of genes in HCC rank list
 };
 
-void insertsort(list<Node>&L,Node *x){ // 插入排序的过程
+void insertsort(list<Node>&L,Node *x){ // Insert sort process
     if(L.empty()){
         L.push_back(*x);
     }
@@ -41,8 +40,8 @@ void insertsort(list<Node>&L,Node *x){ // 插入排序的过程
 
 int main()
 {
-    ofstream out("C:\\Users\\Administrator\\Desktop\\tkeggout.txt");// 存放排序后的结果
-    ifstream in("C:\\Users\\Administrator\\Desktop\\hcc_gene_rank.txt"); // 已经排序好的HCC的基因列表
+    ofstream out("C:\\Users\\Administrator\\Desktop\\tkeggout.txt");// Store sorted results
+    ifstream in("C:\\Users\\Administrator\\Desktop\\hcc_gene_rank.txt"); // Gene list of HCC that has been sorted
     if(!in.is_open()){
         cout << "File opening hcc_gene_rank.txt error!\n";
         exit(1);
@@ -50,16 +49,16 @@ int main()
 
     string str;
     int id = 1;
-    hash_map <string ,int> glist; //HCC rank list哈希存储结构
+    hash_map <string ,int> glist; //HCC rank list hash storage structure
 
-    while(!in.eof()){ // 建立哈希表
+    while(!in.eof()){ // Create a hash table
         getline(in,str);
         glist.insert(Pair(str,id));
         id++;
     }
     in.close();
 
-    ifstream pfile("C:\\Users\\Administrator\\Desktop\\tkegg.txt"); // 存放KEGG路径文件
+    ifstream pfile("C:\\Users\\Administrator\\Desktop\\tkegg.txt"); // Store KEGG path file
     if(!pfile.is_open()){
         cout << "File opening tkegg.txt error!\n";
         exit(1);
