@@ -27,13 +27,13 @@ string getsymbol(char* str){
 
     if(mysql_real_connect(&myCont,host,user,pswd,table,port,NULL,0))
     {
-        mysql_query(&myCont, "SET NAMES GBK"); //设置编码格式,否则在cmd下无法显示中文
-        res=mysql_query(&myCont,str);//查询
+        mysql_query(&myCont, "SET NAMES GBK"); //Set the encoding format, otherwise Chinese cannot be displayed under cmd
+        res=mysql_query(&myCont,str);//select
 
         if(!res){
-            result=mysql_store_result(&myCont);//保存查询到的数据到result
+            result=mysql_store_result(&myCont);//Save the queried data to result
             if(result){
-                while(sql_row=mysql_fetch_row(result)){//获取具体的数据
+                while(sql_row=mysql_fetch_row(result)){//Get specific data
                     t = sql_row[0];
                 }
 
@@ -41,15 +41,15 @@ string getsymbol(char* str){
         }else {
             cout << "query sql failed!"<<endl;
             cout << mysql_error(&myCont) << endl;
-            mysql_close(&myCont);//断开连接
+            mysql_close(&myCont);//Disconnect
         }
     }
     else
     {
         cout<<"connect failed!"<<endl;
     }
-    if(result!=NULL) mysql_free_result(result);//释放结果资源
-    mysql_close(&myCont);//断开连接
+    if(result!=NULL) mysql_free_result(result);//Release result resources
+    mysql_close(&myCont);//Disconnect
 
     return t;
 }
@@ -57,12 +57,12 @@ string getsymbol(char* str){
 
 int main()
 {
-    ifstream in("C:\\Users\\Administrator\\Desktop\\肝癌数据集\\geneset.txt");
+    ifstream in("C:\\Users\\Administrator\\Desktop\\鑲濈檶鏁版嵁闆哱\geneset.txt");
     if(! in.is_open()){
         cout << "Error opening file\n";
         exit(1);
     }
-    ofstream outfile("C:\\Users\\Administrator\\Desktop\\肝癌数据集\\symple.txt");
+    ofstream outfile("C:\\Users\\Administrator\\Desktop\\鑲濈檶鏁版嵁闆哱\symple.txt");
     if(!outfile.is_open()){
         cout << "Error opening file\n";
     }
