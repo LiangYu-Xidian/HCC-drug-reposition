@@ -22,21 +22,21 @@ string getprobe(char* str){
     MYSQL_ROW sql_row;
 
     int res;
-    vector<string> record; // 结果
+    vector<string> record; // result
     mysql_init(&myCont);
     string t = "";
 
     if(mysql_real_connect(&myCont,host,user,pswd,table,port,NULL,0))
     {
-        mysql_query(&myCont, "SET NAMES GBK"); //设置编码格式,否则在cmd下无法显示中文
-        res=mysql_query(&myCont,str);//查询
+        mysql_query(&myCont, "SET NAMES GBK"); //Set the encoding format, otherwise Chinese cannot be displayed under cmd
+        res=mysql_query(&myCont,str);//select
 
         if(!res){
-            result=mysql_store_result(&myCont);//保存查询到的数据到result
+            result=mysql_store_result(&myCont);//Save the queried data to result
             int num = (int)mysql_num_rows(result);
             if(result){
                 int i;
-                while(sql_row=mysql_fetch_row(result)){//获取具体的数据
+                while(sql_row=mysql_fetch_row(result)){//Get specific data
                     record.push_back(sql_row[0]);
                 }
                 for(i=0;i<num;i++){
@@ -52,15 +52,15 @@ string getprobe(char* str){
         }else {
             cout << "query sql failed!"<<endl;
             cout << mysql_error(&myCont) << endl;
-            mysql_close(&myCont);//断开连接
+            mysql_close(&myCont);//Disconnect
         }
     }
     else
     {
         cout<<"connect failed!"<<endl;
     }
-    if(result!=NULL) mysql_free_result(result);//释放结果资源
-    mysql_close(&myCont);//断开连接
+    if(result!=NULL) mysql_free_result(result);//Release result resources
+    mysql_close(&myCont);//Disconnect
     record.clear();
     return t;
 }
@@ -81,10 +81,10 @@ void query2(char* str,ofstream& outfile){
     mysql_init(&myCont);
     if(mysql_real_connect(&myCont,host,user,pswd,table,port,NULL,0))
     {
-        mysql_query(&myCont, "SET NAMES GBK"); //设置编码格式,否则在cmd下无法显示中文
-        res=mysql_query(&myCont,str);//查询
+        mysql_query(&myCont, "SET NAMES GBK"); //Set the encoding format, otherwise Chinese cannot be displayed under cmd
+        res=mysql_query(&myCont,str);//select
         if(!res){
-            result=mysql_store_result(&myCont);//保存查询到的数据到result
+            result=mysql_store_result(&myCont);//Save the queried data to result
             if(result){
                 int j;
                 j = mysql_num_fields(result);
@@ -110,7 +110,7 @@ void query2(char* str,ofstream& outfile){
                         t += d;
                     }
                     char value[25] = "";
-                    sprintf(value,"%.8f",t);//将a格式化输出到str中，取小数点后7位
+                    sprintf(value,"%.8f",t);//Format a and output it to str, taking 7 decimal places
                     if(i != j-2){
                         outfile << value <<"\t";
                     }else{
@@ -122,16 +122,15 @@ void query2(char* str,ofstream& outfile){
             cout << "query sql failed!"<<endl;
             cout << mysql_error(&myCont) << endl;
 
-            mysql_close(&myCont);//断开连接
-
+            mysql_close(&myCont);//Disconnect
         }
     }
     else
     {
         cout<<"connect failed!"<<endl;
     }
-    if(result!=NULL) mysql_free_result(result);//释放结果资源
-    mysql_close(&myCont);//断开连接
+    if(result!=NULL) mysql_free_result(result);//Release result resources
+    mysql_close(&myCont);//Disconnect
     arr.clear();
     return ;
 }
@@ -140,12 +139,12 @@ void query2(char* str,ofstream& outfile){
 
 int main()
 {
-    ifstream in("C:\\Users\\Administrator\\Desktop\\肝癌数据集\\geneset.txt");
+    ifstream in("C:\\Users\\Administrator\\Desktop\\鑲濈檶鏁版嵁闆哱\geneset.txt");
     if(! in.is_open()){
         cout << "Error opening file\n";
         exit(1);
     }
-    ofstream outfile("C:\\Users\\Administrator\\Desktop\\肝癌数据集\\exprestiondata.txt");
+    ofstream outfile("C:\\Users\\Administrator\\Desktop\\鑲濈檶鏁版嵁闆哱\exprestiondata.txt");
     if(!outfile.is_open()){
         cout << "Error opening file\n";
     }
